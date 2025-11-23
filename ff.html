@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Top Up Free Fire - Kepo.id</title>  
+  <link rel="icon" href="https://files.catbox.moe/4e9xoj.png" type="image/png">
+
+  <!-- SEO & Meta -->
+  <meta property="og:title" content="Top Up Free Fire Murah">
+  <meta property="og:description" content="Top Up Diamond Free Fire, Membership, dan BP Card termurah dan terpercaya. Proses instan!">
+  <meta property="og:image" content="https://files.catbox.moe/hm75bz.png">
+  <meta property="og:type" content="website">
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Config -->
+  <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                  colors: {
+                      kepo: {
+                          bg: '#2f1b63',       
+                          dark: '#1e1145',     
+                          card: '#442d81',     
+                          cardHover: '#53369a',
+                          accent: '#3ef3ff',   
+                          purpleBtn: '#8b5cf6',
+                          border: '#6b4caf',   
+                          text: '#e2d4f5'      
+                      }
+                  },
+                  boxShadow: {
+                      'neon': '0 0 10px rgba(62, 243, 255, 0.5)',
+                      'float': '0 10px 30px rgba(0,0,0,0.3)'
+                  },
+                  animation: {
+                      'shake': 'shake 0.4s cubic-bezier(.36,.07,.19,.97) both',
+                      'fade-in': 'fadeIn 0.5s ease-out forwards'
+                  },
+                  keyframes: {
+                      shake: {
+                          '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                          '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                          '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                          '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                      },
+                      fadeIn: {
+                          '0%': { opacity: '0', transform: 'translateY(10px)' },
+                          '100%': { opacity: '1', transform: 'translateY(0)' }
+                      }
+                  }
+              }
+          }
+      }
+  </script>
+
+  <style>
+      body {
+          background: linear-gradient(180deg, #4c2a8f 0%, #2f1b63 100%);
+          color: white;
+          min-height: 100vh;
+      }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #1e1145; }
+      ::-webkit-scrollbar-thumb { background: #6b4caf; border-radius: 4px; }
+
+      .glass-nav {
+          background: rgba(30, 17, 69, 0.85);
+          backdrop-filter: blur(10px);
+      }
+      
+      /* Input Validation Styles */
+      .input-error {
+          border-color: #ff4d4d !important;
+          background-color: rgba(255, 77, 77, 0.1) !important;
+          box-shadow: 0 0 0 1px rgba(255, 77, 77, 0.3) !important;
+      }
+      .input-success {
+          border-color: #10b981 !important;
+          background-color: rgba(16, 185, 129, 0.05) !important;
+      }
+      .validation-msg {
+          transition: all 0.3s ease;
+          height: 0;
+          overflow: hidden;
+          opacity: 0;
+          transform: translateY(-5px);
+      }
+      .validation-msg.show {
+          height: auto;
+          opacity: 1;
+          transform: translateY(0);
+          margin-top: 4px;
+      }
+
+      /* Product Card */
+      .product-card {
+          transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+          position: relative;
+          overflow: hidden;
+          border: 2px solid transparent;
+          transform: scale(1);
+      }
+      .product-card:hover {
+          transform: translateY(-4px);
+          background-color: #53369a;
+      }
+      .product-card:active { transform: scale(0.95); }
+      .product-card.active {
+          border-color: #3ef3ff;
+          background-color: rgba(62, 243, 255, 0.1);
+      }
+      .product-card.active .check-icon { display: block; }
+
+      .ribbon {
+          background: linear-gradient(90deg, #ff4d4d, #f9cb28);
+          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+      }
+      .btn-gradient {
+          background: linear-gradient(90deg, #3ef3ff 0%, #60a5fa 100%);
+      }
+      .step-circle {
+          background: linear-gradient(135deg, #3ef3ff 0%, #2b86c5 100%);
+          box-shadow: 0 4px 10px rgba(62, 243, 255, 0.3);
+      }
+
+      /* Toast */
+      #toast-container {
+          position: fixed; top: 24px; right: 24px; z-index: 9999;
+          display: flex; flex-direction: column; gap: 12px; pointer-events: none;
+      }
+      .toast {
+          pointer-events: auto; min-width: 300px; padding: 16px;
+          border-radius: 12px; background: rgba(47, 27, 99, 0.9);
+          backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
+          box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+          display: flex; align-items: center; gap: 12px;
+          animation: slideIn 0.3s forwards;
+      }
+      @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+      @keyframes slideOut { to { transform: translateX(100%); opacity: 0; } }
+
+      /* View Transition */
+      .view-hidden { display: none; }
+      .view-enter { animation: fadeIn 0.5s ease-out forwards; }
+      
+      /* Ripple */
+      .ripple {
+          position: absolute; background: rgba(255,255,255,0.4);
+          border-radius: 50%; transform: scale(0);
+          animation: ripple 0.6s linear; pointer-events: none;
+      }
+      @keyframes ripple { to { transform: scale(4); opacity: 0; } }
+      
+      /* Payment Disabled */
+      .payment-disabled { opacity: 0.5; filter: grayscale(100%); pointer-events: none; }
+  </style>
+</head>
+<body class="antialiased pb-24 lg:pb-0">
+
+    <!-- TOAST -->
+    <div id="toast-container"></div>
+
+    <!-- NAVBAR -->
+    <nav class="glass-nav fixed top-0 w-full z-50 border-b border-white/10 h-16 flex items-center">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="index.html" onclick="window.location.reload()">
+                    <img src="https://files.catbox.moe/nk49lb.webp" alt="Kepo Logo" class="h-8 md:h-10 object-contain" loading="eager">
+                </a>
+                <div class="hidden md:flex relative group">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <i class="fas fa-search text-gray-400"></i>
+                    </div>
+                    <input type="text" class="bg-[#362066] text-sm rounded-full pl-10 pr-4 py-2 w-80 border border-white/10 focus:outline-none focus:border-kepo-accent transition text-white placeholder-gray-400" placeholder="Cari Game atau Voucher...">
+                </div>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium">
+                <a href="index.html" class="hidden md:flex items-center gap-2 hover:text-kepo-accent transition"><i class="fas fa-wallet"></i> Topup</a>
+                <a href="https://www.kepo.id/id-id/invoices" class="hidden md:flex items-center gap-2 hover:text-kepo-accent transition"><i class="fas fa-search"></i> Cek Transaksi</a>
+                <div class="w-px h-6 bg-white/20 hidden md:block"></div>
+                <a href="https://www.kepo.id/id-id/sign-in" class="hover:text-kepo-accent transition">Masuk</a>
+                <a href="https://www.kepo.id/id-id/sign-up" class="bg-white/10 border border-white/20 px-4 py-1.5 rounded-lg hover:bg-white/20 transition">Daftar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- VIEW 1: SHOP FORM -->
+    <div id="shop-view">
+        <header class="relative mt-16 group">
+            <div class="w-full h-[180px] md:h-[380px] overflow-hidden relative">
+                <img src="https://files.catbox.moe/hm75bz.png" class="w-full h-full object-cover object-top" alt="FF Banner" loading="eager">
+                <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-kepo-bg to-transparent"></div>
+            </div>
+        </header>
+
+        <main class="container mx-auto px-4 relative z-10 -mt-10 md:-mt-24">
+            <div class="flex flex-col lg:flex-row gap-6">
+                <!-- KOLOM KIRI -->
+                <div class="flex-1 space-y-6">
+                    <!-- Game Header -->
+                    <div class="bg-kepo-card/90 backdrop-blur-md p-4 md:p-6 rounded-2xl shadow-float flex items-center gap-4 border border-white/10">
+                        <img src="https://files.catbox.moe/xrcn7w.webp" class="w-20 h-20 md:w-24 md:h-24 rounded-2xl border-2 border-white/20 shadow-lg" alt="FF Icon" loading="eager">
+                        <div>
+                            <h1 class="text-xl md:text-2xl font-bold uppercase tracking-wide">Free Fire</h1>
+                            <p class="text-kepo-text text-sm">Garena</p>
+                            <div class="flex gap-2 mt-2 text-[10px] md:text-xs text-gray-300">
+                                <span class="flex items-center gap-1"><i class="fas fa-bolt text-yellow-400"></i> Proses Cepat</span>
+                                <span class="flex items-center gap-1"><i class="fas fa-headset text-blue-400"></i> Layanan 24/7</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 1. Data Akun (MODIFIED: Single Input) -->
+                    <section class="bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg">
+                        <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-3">
+                            <div class="w-8 h-8 rounded-lg step-circle flex items-center justify-center text-black font-bold text-sm">1</div>
+                            <h2 class="text-lg font-semibold">Masukkan Data Akun</h2>
+                        </div>
+                        <!-- Grid diubah menjadi 1 kolom karena Server ID dihapus -->
+                        <div class="grid grid-cols-1 gap-4">
+                            <div>
+                                <label class="text-xs text-gray-300 ml-1 mb-1 block">User ID</label>
+                                <input type="number" id="userIdInput" placeholder="Masukkan User ID" class="w-full bg-[#2f1b63] border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-kepo-accent transition text-white">
+                                <p class="text-[10px] text-red-400 validation-msg" id="userIdError"><i class="fas fa-exclamation-circle mr-1"></i> Digit Harus Valid!</p>
+                            </div>
+                        </div>
+                        <div class="mt-3 text-[10px] text-gray-400 flex items-start gap-2 bg-black/20 p-2 rounded">
+                            <i class="fas fa-info-circle mt-0.5"></i>
+                            <p>Untuk mengetahui User ID Anda, silakan klik menu profil di bagian kiri atas pada menu utama game.</p>
+                        </div>
+                    </section>
+
+                    <!-- 2. Pilih Nominal -->
+                    <section class="bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg">
+                        <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-3">
+                            <div class="w-8 h-8 rounded-lg step-circle flex items-center justify-center text-black font-bold text-sm">2</div>
+                            <h2 class="text-lg font-semibold">Pilih Nominal</h2>
+                        </div>
+                        <div class="flex gap-2 overflow-x-auto pb-2 mb-2 scrollbar-hide">
+                            <button class="px-4 py-1.5 rounded-full bg-kepo-accent text-black text-xs font-bold border border-kepo-accent whitespace-nowrap shadow-neon">Semua</button>
+                            <button class="px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-medium hover:bg-kepo-accent hover:text-black transition whitespace-nowrap">Membership</button>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-3" id="product-grid">
+                            <!-- Products injected here -->
+                        </div>
+                    </section>
+
+                    <!-- 3. Pembayaran -->
+                    <section class="bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg">
+                        <div class="flex items-center gap-3 mb-4 border-b border-white/10 pb-3">
+                            <div class="w-8 h-8 rounded-lg step-circle flex items-center justify-center text-black font-bold text-sm">3</div>
+                            <h2 class="text-lg font-semibold">Pilih Pembayaran</h2>
+                        </div>
+                        <div class="space-y-3">
+                            <!-- QRIS -->
+                            <div class="bg-[#2f1b63] border border-white/10 rounded-xl p-4 cursor-pointer hover:bg-[#3d247a] transition relative overflow-hidden group payment-item" onclick="selectPayment(this, 'QRIS PAY')">
+                                <div class="absolute top-0 right-0 bg-yellow-400 text-black text-[10px] font-bold px-2 py-0.5 rounded-bl-lg">HOT</div>
+                                <div class="flex justify-between items-center">
+                                    <img src="https://cdn.bangjeff.com/d1e56bdd-a50a-4a63-a8e7-3217c6389236.webp" class="h-6 bg-white rounded p-0.5" alt="QRIS" loading="lazy">
+                                    <div class="text-right">
+                                        <div class="text-[10px] text-gray-400">Biaya Layanan +0.7%</div>
+                                        <div class="text-kepo-accent font-bold text-sm price-display" id="price-qris">Rp -</div>
+                                    </div>
+                                </div>
+                                <div class="absolute inset-0 border-2 border-transparent group-[.active]:border-kepo-accent rounded-xl pointer-events-none"></div>
+                            </div>
+
+                            <!-- E-Wallet Accordion -->
+                            <div class="bg-[#2f1b63] border border-white/10 rounded-xl overflow-hidden">
+                                <div class="p-3 flex justify-between items-center cursor-pointer bg-white/5" onclick="toggleAccordion('ewallet')">
+                                    <span class="text-sm font-semibold">E-Wallet</span>
+                                    <i class="fas fa-chevron-down text-xs transition-transform" id="icon-ewallet"></i>
+                                </div>
+                                <div id="body-ewallet" class="hidden grid gap-2 p-3">
+                                    <div class="bg-[#1e1145] p-3 rounded-lg border border-white/5 flex justify-between items-center cursor-pointer hover:bg-white/5 relative payment-item" onclick="selectPayment(this, 'DANA')">
+                                        <img src="https://cdn.bangjeff.com/248dc850-d3c9-4408-a5ca-d8fad7cbc665.webp" class="h-5 bg-white rounded p-0.5" loading="lazy">
+                                        <div class="text-kepo-accent font-bold text-sm price-display" id="price-dana">Rp -</div>
+                                        <div class="absolute inset-0 border-2 border-transparent group-[.active]:border-kepo-accent rounded-lg pointer-events-none"></div>
+                                    </div>
+                                    <div class="bg-[#1e1145] p-3 rounded-lg border border-white/5 flex justify-between items-center cursor-pointer hover:bg-white/5 relative payment-item" onclick="selectPayment(this, 'ShopeePay')">
+                                        <img src="https://files.catbox.moe/0o9w9a.webp" class="h-5 bg-white rounded p-0.5" loading="lazy">
+                                        <div class="text-kepo-accent font-bold text-sm price-display" id="price-shopeepay">Rp -</div>
+                                        <div class="absolute inset-0 border-2 border-transparent group-[.active]:border-kepo-accent rounded-lg pointer-events-none"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Convenience Store (DISABLED) -->
+                            <div class="bg-[#2f1b63] border border-white/10 rounded-xl overflow-hidden payment-disabled">
+                                <div class="p-3 flex justify-between items-center bg-white/5">
+                                    <span class="text-sm font-semibold text-gray-400">Convenience Store</span>
+                                    <i class="fas fa-chevron-down text-xs transition-transform text-gray-500"></i>
+                                </div>
+                                <div class="grid gap-2 p-3">
+                                    <div class="bg-[#1e1145] p-3 rounded-lg border border-white/5 flex justify-between items-center relative">
+                                        <img src="https://files.catbox.moe/bs0pll.webp" class="h-5 bg-white rounded p-0.5 grayscale" loading="lazy">
+                                        <div class="text-gray-500 font-bold text-sm">Rp -</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- 4 & 5. Promo & Kontak -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <section class="bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-8 h-8 rounded-lg step-circle flex items-center justify-center text-black font-bold text-sm">4</div>
+                                <h2 class="text-lg font-semibold">Kode Promo</h2>
+                            </div>
+                            <div class="relative">
+                                <input type="text" placeholder="Kode Promo" class="w-full bg-[#2f1b63] border border-white/10 rounded-lg px-4 py-3 text-sm focus:outline-none kepo-input transition text-white pr-24">
+                                <button class="absolute right-1 top-1 bottom-1 bg-white/10 hover:bg-kepo-accent hover:text-black text-gray-300 px-4 rounded font-bold text-xs transition">Gunakan</button>
+                            </div>
+                        </section>
+
+                        <section class="bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-8 h-8 rounded-lg step-circle flex items-center justify-center text-black font-bold text-sm">5</div>
+                                <h2 class="text-lg font-semibold">Detail Kontak</h2>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute left-3 top-3 text-gray-400 text-sm border-r border-gray-600 pr-2">+62</div>
+                                <input type="number" id="whatsappInput" placeholder="No. WhatsApp" class="w-full bg-[#2f1b63] border border-white/10 rounded-lg pl-16 pr-4 py-3 text-sm focus:outline-none kepo-input transition text-white">
+                            </div>
+                            <p class="text-[10px] text-red-400 validation-msg" id="whatsappError"><i class="fas fa-exclamation-circle mr-1"></i> Nomor WhatsApp wajib diisi dengan benar.</p>
+                        </section>
+                    </div>
+                </div>
+
+                <!-- KOLOM KANAN (Sidebar) -->
+                <div class="lg:w-[350px] space-y-6">
+                    <div class="bg-kepo-card p-6 rounded-2xl border border-white/5 shadow-lg relative overflow-hidden text-center">
+                        <div class="absolute top-[-50%] left-[-50%] w-[200%] h-[200%] bg-gradient-to-br from-kepo-accent/10 to-transparent pointer-events-none rounded-full blur-3xl"></div>
+                        <div class="text-5xl font-bold text-white mb-1">4.97</div>
+                        <div class="flex justify-center gap-1 text-yellow-400 mb-2 text-sm">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <div class="text-xs text-gray-400">Berdasarkan total 2.38jt rating</div>
+                    </div>
+
+                    <div class="sticky top-20 bg-kepo-card p-5 rounded-2xl border border-white/5 shadow-lg z-10 hidden lg:block">
+                        <h3 class="text-lg font-semibold mb-4 border-b border-white/10 pb-2">Detail Pesanan</h3>
+                        <div id="desktop-empty-state" class="text-center py-8 text-gray-400 text-sm">Belum ada produk dipilih.</div>
+                        <div id="desktop-active-state" class="hidden">
+                            <div class="flex items-start gap-3 mb-4">
+                                <img src="https://files.catbox.moe/xrcn7w.webp" class="w-12 h-12 rounded bg-black/20 p-1">
+                                <div>
+                                    <div class="font-bold text-sm line-clamp-2" id="summary-product-name">Product Name</div>
+                                    <div class="text-kepo-accent font-bold text-sm" id="summary-product-price">Rp 0</div>
+                                </div>
+                            </div>
+                            <div class="space-y-2 text-xs text-gray-300 border-t border-white/10 pt-3 mb-4">
+                                <div class="flex justify-between">
+                                    <span>Metode:</span>
+                                    <span class="font-bold text-white" id="summary-payment-method">-</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Total Bayar:</span>
+                                    <span class="font-bold text-kepo-accent text-lg" id="summary-total-price">Rp 0</span>
+                                </div>
+                            </div>
+                            <button onclick="createRipple(event); validateAndShowModal()" class="w-full btn-gradient py-3 rounded-xl text-black font-bold shadow-neon hover:opacity-90 transition relative overflow-hidden">
+                                <i class="fas fa-shopping-bag mr-2"></i> Pesan Sekarang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Mobile Sticky Bar -->
+        <div class="fixed bottom-0 left-0 right-0 bg-[#1e1145] border-t border-white/10 p-4 lg:hidden z-50 flex items-center justify-between shadow-[0_-5px_15px_rgba(0,0,0,0.3)]">
+            <div>
+                <div class="text-[10px] text-gray-400">Total Pembayaran</div>
+                <div class="text-lg font-bold text-kepo-accent" id="mobile-total-price">Rp 0</div>
+            </div>
+            <button onclick="createRipple(event); validateAndShowModal()" class="bg-kepo-accent text-black font-bold px-6 py-2 rounded-lg text-sm shadow-neon hover:bg-white transition relative overflow-hidden">
+                Pesan
+            </button>
+        </div>
+    </div>
+
+    <!-- VIEW 2: INVOICE -->
+    <div id="invoice-view" class="view-hidden pt-20 pb-20 min-h-screen container mx-auto px-4">
+        <!-- Progress Bar -->
+        <div class="flex justify-between items-center relative mb-12 max-w-4xl mx-auto px-4">
+            <div class="absolute top-1/2 left-0 w-full h-0.5 bg-gray-600 -z-10"></div>
+            <div class="absolute top-1/2 left-0 h-0.5 bg-kepo-accent transition-all duration-1000 w-1/3 progress-line active -z-10"></div>
+            
+            <div class="flex flex-col items-center progress-step active">
+                <div class="icon-container w-10 h-10 rounded-full border-2 border-kepo-accent bg-kepo-accent text-[#1e1145] flex items-center justify-center font-bold mb-2"><i class="fas fa-wallet"></i></div>
+                <p class="text-[10px] md:text-xs font-semibold text-kepo-accent">Transaksi Dibuat</p>
+            </div>
+            <div class="flex flex-col items-center progress-step active">
+                <div class="icon-container w-10 h-10 rounded-full border-2 border-kepo-accent bg-[#1e1145] text-white flex items-center justify-center font-bold mb-2 shadow-neon"><i class="fas fa-ticket-alt"></i></div>
+                <p class="text-[10px] md:text-xs font-semibold text-white">Pembayaran</p>
+            </div>
+            <div class="flex flex-col items-center progress-step">
+                <div class="icon-container w-10 h-10 rounded-full border-2 border-gray-600 bg-[#1e1145] text-gray-400 flex items-center justify-center font-bold mb-2"><i class="fas fa-sync-alt"></i></div>
+                <p class="text-[10px] md:text-xs font-semibold text-gray-400">Sedang Di Proses</p>
+            </div>
+            <div class="flex flex-col items-center progress-step">
+                <div class="icon-container w-10 h-10 rounded-full border-2 border-gray-600 bg-[#1e1145] text-gray-400 flex items-center justify-center font-bold mb-2"><i class="fas fa-check"></i></div>
+                <p class="text-[10px] md:text-xs font-semibold text-gray-400">Transaksi Selesai</p>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-6">
+            <!-- Game Info Invoice -->
+            <div class="lg:w-1/3">
+                <div class="bg-kepo-card rounded-2xl p-6 border border-white/5 relative overflow-hidden">
+                    <div class="flex gap-4">
+                        <img src="https://files.catbox.moe/xrcn7w.webp" class="w-20 h-20 rounded-xl border border-white/20">
+                        <div>
+                            <h3 class="font-bold text-lg text-white">Free Fire</h3>
+                            <p class="text-xs text-gray-300" id="inv-item-name">Item Name</p>
+                        </div>
+                    </div>
+                    <div class="mt-6 space-y-3 text-sm">
+                        <div class="flex justify-between border-b border-white/5 pb-2">
+                            <span class="text-gray-400">ID</span>
+                            <span class="font-medium" id="inv-user-id">123456</span>
+                        </div>
+                        <!-- Server ID Removed from Invoice -->
+                    </div>
+                </div>
+                
+                <div class="bg-kepo-card rounded-2xl mt-4 border border-white/5 overflow-hidden">
+                    <div class="p-4 bg-kepo-dark border-b border-white/5 font-semibold text-sm flex justify-between items-center">
+                        Rincian Pembayaran <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="p-4 space-y-2 text-sm">
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Harga</span>
+                            <span class="text-right" id="inv-price">Rp 0</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-400">Jumlah</span>
+                            <span class="text-right">1x</span>
+                        </div>
+                         <div class="flex justify-between">
+                            <span class="text-gray-400">Biaya Layanan</span>
+                            <span class="text-right">Rp 48</span>
+                        </div>
+                        <div class="flex justify-between font-bold text-kepo-accent text-lg pt-2 border-t border-white/10 mt-2">
+                            <span>Total</span>
+                            <span id="inv-total">Rp 0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:w-2/3 space-y-6">
+                <div class="bg-[#d97706] rounded-xl p-3 text-center text-sm font-bold text-white shadow-lg animate-pulse">
+                    Menunggu Pembayaran
+                    <div class="text-xs font-normal opacity-90">Silahkan lakukan pembayaran sebelum waktu habis.</div>
+                </div>
+                
+                <div class="bg-[#db2777] rounded-lg px-4 py-2 w-fit text-sm font-bold shadow-lg">
+                   <i class="fas fa-clock mr-2"></i> <span id="countdown">02 Jam 59 Menit 59 Detik</span>
+                </div>
+
+                <div class="bg-kepo-card rounded-2xl p-6 border border-white/5 shadow-lg flex flex-col md:flex-row gap-8">
+                    <div class="flex-1 space-y-4">
+                        <div>
+                            <p class="text-xs text-gray-400">Metode Pembayaran</p>
+                            <h3 class="font-bold text-lg" id="inv-method">QRIS PAY</h3>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Nomor Invoice</p>
+                            <h3 class="font-bold text-sm flex items-center gap-2">
+                                KPO815BDBB8A1A91B21635891 <i class="fas fa-copy text-gray-500 cursor-pointer"></i>
+                            </h3>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Status Pembayaran</p>
+                            <span class="bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded">UNPAID</span>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-400">Status Transaksi</p>
+                            <span class="bg-yellow-500 text-black text-[10px] font-bold px-2 py-0.5 rounded">PENDING</span>
+                        </div>
+                        <p class="text-xs italic text-gray-300">Your order is being processed. Please wait!</p>
+                    </div>
+                    
+                    <div class="bg-white p-4 rounded-xl shadow-lg flex flex-col items-center">
+                        <img id="qris-image" src="https://files.catbox.moe/esn2j1.png" class="w-48 h-48 object-contain" loading="lazy">
+                        <button onclick="createRipple(event); downloadQR()" class="mt-4 w-full bg-kepo-accent text-black font-bold py-2 rounded text-xs hover:bg-white transition relative overflow-hidden">
+                            Unduh Kode QR
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL KONFIRMASI -->
+    <div id="confirmationModal" class="fixed inset-0 z-[100] hidden flex items-center justify-center px-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity" onclick="hideModal()"></div>
+        <div class="bg-[#5b21b6] rounded-2xl w-full max-w-md p-6 relative z-10 shadow-2xl border border-white/10 transform transition-all scale-95 opacity-0" id="modalContent">
+            <div class="flex justify-center -mt-12 mb-4">
+                <div class="w-20 h-20 rounded-full bg-[#10b981] flex items-center justify-center border-4 border-[#5b21b6] shadow-lg">
+                    <i class="fas fa-check text-4xl text-white"></i>
+                </div>
+            </div>
+            <h2 class="text-center text-xl font-bold mb-1">Buat Pesanan</h2>
+            <p class="text-center text-xs text-gray-200 mb-6">Pastikan data akun Kamu dan produk yang Kamu pilih valid dan sesuai.</p>
+
+            <div class="bg-[#4c1d95] rounded-xl p-4 space-y-3 text-sm mb-6 shadow-inner border border-white/5">
+                <div class="flex justify-between">
+                    <span class="text-gray-300">ID</span>
+                    <span class="text-right font-medium" id="modal-userid"></span>
+                </div>
+                <!-- Server ID Removed -->
+                 <div class="flex justify-between">
+                    <span class="text-gray-300">Item</span>
+                    <span class="text-right font-medium text-white" id="modal-item"></span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-300">Product</span>
+                    <span class="text-right font-medium">Free Fire</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-300">Payment</span>
+                    <span class="text-right font-medium text-white" id="modal-payment"></span>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-2 mb-6">
+                <input type="checkbox" id="tocCheck" class="mt-0.5 accent-kepo-accent w-4 h-4 cursor-pointer" checked>
+                <label for="tocCheck" class="text-[10px] text-gray-300 leading-tight">
+                    Dengan mengklik <span class="text-kepo-accent font-bold">Pesan Sekarang</span>, kamu sudah menyetujui <a href="#" class="underline">Syarat & Ketentuan</a> yang berlaku
+                </label>
+            </div>
+
+            <div class="flex gap-3">
+                <button onclick="hideModal()" class="flex-1 bg-[#2e1065] hover:bg-[#1e0a45] text-white font-bold py-3 rounded-xl transition">
+                    Batalkan
+                </button>
+                <button onclick="createRipple(event); processOrder()" class="flex-1 bg-gradient-to-r from-cyan-400 to-blue-500 hover:opacity-90 text-white font-bold py-3 rounded-xl transition shadow-lg shadow-cyan-500/20 relative overflow-hidden">
+                    Pesan Sekarang!
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- FOOTER -->
+    <footer class="mt-20 bg-[#150c2e] relative pt-32 pb-10 text-sm text-gray-400 mt-20 border-t border-white/5">
+        <div class="absolute top-0 w-full overflow-hidden leading-0 transform rotate-180 -mt-[1px]">
+             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[60px] fill-[#2f1b63]">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
+            <!-- Brand Info -->
+            <div>
+                <a href="index.html" class="block mb-6">
+                    <img src="https://files.catbox.moe/nk49lb.webp" class="h-9 brightness-110" loading="lazy">
+                </a>
+                <p class="text-xs leading-relaxed mb-6 text-gray-400">Platform Top Up Game Termurah, Tercepat, dan Terpercaya di Indonesia. Proses otomatis 24 jam dengan metode pembayaran terlengkap.</p>
+                <div class="flex gap-3">
+                    <a href="https://www.instagram.com/official.kepoid" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tiktok.kepoid" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@officialkepoid?si=4Q7OllptKYXocA-5" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Links -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Peta Situs</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="index.html" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Beranda</a></li>
+                    <li><a href="https://www.kepo.id/id-id/sign-in" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Masuk / Daftar</a></li>
+                    <li><a href="https://www.kepo.id/id-id/invoices" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Cek Pesanan</a></li>
+                </ul>
+            </div>
+            
+            <!-- Support -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Dukungan</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="https://whatsapp.com/channel/0029Val5dvlC6ZvdRLXrDl3f" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp CS</a></li>
+                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-envelope"></i> Email Support</a></li>
+                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-bug"></i> Laporan Kendala</a></li>
+                </ul>
+            </div>
+            
+            <!-- Legal -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Legalitas</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="https://www.kepo.id/id-id/terms-and-condition" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-shield-alt"></i> Syarat & Ketentuan</a></li>
+                    <li><a href="https://www.kepo.id/id-id/privacy-policy" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-user-shield"></i> Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-16 border-t border-white/5 pt-8 text-[10px] text-gray-500 tracking-wider">
+            Copyright © 2024 Kepo.id. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Data Produk FF
+        const products = [
+            // Diamonds
+            { name: "5 Diamonds", price: 652, category: "Diamonds" },
+            { name: "12 Diamonds", price: 1341, category: "Diamonds" },
+            { name: "50 Diamonds", price: 4332, category: "Diamonds" },
+            { name: "70 Diamonds", price: 6898, category: "Diamonds" },
+            { name: "140 Diamonds", price: 14084, category: "Diamonds" },
+            { name: "355 Diamonds", price: 36360, category: "Diamonds" },
+            { name: "720 Diamonds", price: 73510, category: "Diamonds" },
+            { name: "1450 Diamonds", price: 148060, category: "Diamonds" },
+            { name: "2180 Diamonds", price: 234028, category: "Diamonds" },
+            { name: "3640 Diamonds", price: 382470, category: "Diamonds" },
+            
+            // BP Card & Memberships
+            { name: "BP Card", price: 35090, category: "Membership", image: "https://files.catbox.moe/nj6jvb.webp" },
+            { name: "Membership Mingguan", price: 21200, category: "Membership", image: "https://files.catbox.moe/xvyg70.webp" },
+            { name: "Membership Bulanan", price: 63070, category: "Membership", image: "Https://files.catbox.moe/0yvffo.webp" }
+        ];
+
+        const gridContainer = document.getElementById('product-grid');
+        
+        function renderSkeleton() {
+            gridContainer.innerHTML = ''; 
+            for(let i=0; i<6; i++) {
+                const skel = document.createElement('div');
+                skel.className = 'bg-[#2f1b63] rounded-xl p-3 h-[110px] border border-white/5 animate-pulse flex flex-col justify-between';
+                skel.innerHTML = `
+                    <div class="flex justify-between">
+                        <div class="h-8 w-8 bg-white/10 rounded-full"></div>
+                        <div class="h-4 w-12 bg-white/10 rounded"></div>
+                    </div>
+                    <div class="h-3 w-3/4 bg-white/10 rounded mt-2"></div>
+                    <div class="h-3 w-1/2 bg-white/10 rounded mt-1"></div>
+                    <div class="h-8 w-full bg-white/10 rounded mt-2"></div>
+                `;
+                gridContainer.appendChild(skel);
+            }
+        }
+
+        function renderProducts() {
+            gridContainer.innerHTML = '';
+            products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = `product-card bg-[#2f1b63] rounded-xl p-3 cursor-pointer group`;
+                
+                // Default Diamond Logo (Updated)
+                let iconSrc = 'https://files.catbox.moe/9gp16f.webp'; 
+                let imgClass = 'w-8 h-8 drop-shadow-md';
+                
+                if(product.image) {
+                    iconSrc = product.image;
+                    imgClass = 'w-8 h-8 rounded';
+                }
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <img src="${iconSrc}" class="${imgClass}" loading="lazy">
+                        <i class="fas fa-check-circle text-kepo-accent hidden check-icon text-lg drop-shadow-[0_0_5px_rgba(62,243,255,0.8)]"></i>
+                    </div>
+                    <div class="text-[10px] text-gray-400 mb-0.5">${product.category}</div>
+                    <div class="font-bold text-sm text-white leading-tight mb-2 min-h-[40px] flex items-center">${product.name}</div>
+                    <div class="text-kepo-accent font-bold text-sm bg-black/20 p-1.5 rounded text-center border border-white/5">Rp ${product.price.toLocaleString('id-ID')}</div>
+                `;
+                
+                card.onclick = () => selectProduct(card, product);
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // State Global
+        let selectedProductData = null;
+        let selectedPaymentMethod = null;
+
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement("span");
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            const rect = button.getBoundingClientRect();
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - rect.left - radius}px`;
+            circle.style.top = `${event.clientY - rect.top - radius}px`;
+            circle.classList.add("ripple");
+            const ripple = button.getElementsByClassName("ripple")[0];
+            if (ripple) { ripple.remove(); }
+            button.appendChild(circle);
+        }
+
+        function selectProduct(element, product) {
+            document.querySelectorAll('.product-card').forEach(c => {
+                c.classList.remove('active', 'border-kepo-accent');
+                c.querySelector('.check-icon').classList.add('hidden');
+            });
+            element.classList.add('active');
+            element.querySelector('.check-icon').classList.remove('hidden');
+            selectedProductData = product;
+            updateCalculation();
+            
+            const fee = 48;
+            const total = product.price + fee;
+            const formattedTotal = 'Rp ' + total.toLocaleString('id-ID');
+            document.getElementById('price-qris').innerText = formattedTotal;
+            document.getElementById('price-dana').innerText = formattedTotal;
+            document.getElementById('price-shopeepay').innerText = formattedTotal;
+        }
+
+        function toggleAccordion(id) {
+            const body = document.getElementById('body-' + id);
+            const icon = document.getElementById('icon-' + id);
+            if (body.classList.contains('hidden')) {
+                body.classList.remove('hidden'); body.classList.add('grid'); icon.style.transform = 'rotate(180deg)';
+            } else {
+                body.classList.add('hidden'); body.classList.remove('grid'); icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function selectPayment(element, method) {
+            document.querySelectorAll('.payment-item').forEach(el => {
+                el.classList.remove('border-kepo-accent', 'bg-kepo-accent/10');
+                el.classList.add('border-white/10');
+                const overlay = el.querySelector('.absolute.inset-0');
+                if(overlay) overlay.classList.remove('border-kepo-accent');
+            });
+            element.classList.remove('border-white/10');
+            element.classList.add('border-kepo-accent', 'bg-kepo-accent/10');
+            const overlay = element.querySelector('.absolute.inset-0');
+            if(overlay) overlay.classList.add('border-kepo-accent');
+            selectedPaymentMethod = method;
+            updateCalculation();
+        }
+
+        function updateCalculation() {
+            if(!selectedProductData) return;
+            const fee = selectedPaymentMethod ? 48 : 0;
+            const totalPrice = selectedProductData.price + fee;
+            const totalString = 'Rp ' + totalPrice.toLocaleString('id-ID');
+            document.getElementById('desktop-empty-state').classList.add('hidden');
+            document.getElementById('desktop-active-state').classList.remove('hidden');
+            document.getElementById('summary-product-name').textContent = selectedProductData.name;
+            document.getElementById('summary-product-price').textContent = 'Rp ' + selectedProductData.price.toLocaleString('id-ID');
+            document.getElementById('summary-payment-method').textContent = selectedPaymentMethod || '-';
+            document.getElementById('summary-total-price').textContent = totalString;
+            document.getElementById('mobile-total-price').textContent = totalString;
+        }
+
+        function showToast(message, type = 'success') {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            let icon = 'fa-check-circle'; let colorClass = 'text-green-400';
+            if (type === 'error') { icon = 'fa-times-circle'; colorClass = 'text-red-400'; }
+            toast.className = `toast ${type}`;
+            toast.innerHTML = `<i class="fas ${icon} ${colorClass} text-xl"></i><div class="text-sm font-medium text-white flex-1">${message}</div><i class="fas fa-times toast-close text-white" onclick="this.parentElement.remove()"></i>`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.style.animation = 'slideOut 0.4s forwards'; toast.addEventListener('animationend', () => { toast.remove(); }); }, 3500);
+        }
+
+        function validateInput(input, errorElementId, validatorFn) {
+            const errorEl = document.getElementById(errorElementId);
+            const isValid = validatorFn(input.value);
+            if (isValid) {
+                input.classList.remove('input-error', 'animate-shake');
+                input.classList.add('input-success');
+                errorEl.classList.remove('show');
+            } else {
+                if(input.value.length > 0) {
+                    input.classList.add('input-error');
+                    input.classList.remove('animate-shake');
+                    void input.offsetWidth; 
+                    input.classList.add('animate-shake');
+                    input.classList.remove('input-success');
+                    errorEl.classList.add('show');
+                } else {
+                    input.classList.remove('input-error', 'input-success', 'animate-shake');
+                    errorEl.classList.remove('show');
+                }
+            }
+            return isValid;
+        }
+
+        // ================= LOCAL STORAGE & INIT =================
+        document.addEventListener('DOMContentLoaded', () => {
+            const userIdInput = document.getElementById('userIdInput');
+            const waInput = document.getElementById('whatsappInput');
+
+            // 1. LOAD DATA from LocalStorage
+            if(localStorage.getItem('kepo_ff_userid')) {
+                userIdInput.value = localStorage.getItem('kepo_ff_userid');
+            }
+            if(localStorage.getItem('kepo_wa')) {
+                waInput.value = localStorage.getItem('kepo_wa');
+            }
+
+            // 2. SAVE DATA on Input Change
+            userIdInput.addEventListener('input', (e) => {
+                localStorage.setItem('kepo_ff_userid', e.target.value);
+                validateInput(userIdInput, 'userIdError', (val) => /^\d{8,10}$/.test(val));
+            });
+
+            waInput.addEventListener('input', (e) => {
+                localStorage.setItem('kepo_wa', e.target.value);
+                validateInput(waInput, 'whatsappError', (val) => val.length >= 10 && /^\d+$/.test(val));
+            });
+
+            renderSkeleton();
+            setTimeout(() => { renderProducts(); }, 1500);
+        });
+
+        function validateAndShowModal() {
+            const userId = document.getElementById('userIdInput').value;
+            const wa = document.getElementById('whatsappInput').value;
+            
+            // Update Validation Logic for FF (8-10 Digits)
+            const isUserValid = /^\d{8,10}$/.test(userId);
+            const isWaValid = wa.length >= 10 && /^\d+$/.test(wa);
+
+            let hasError = false;
+
+            if (!isUserValid) {
+                validateInput(document.getElementById('userIdInput'), 'userIdError', () => false);
+                hasError = true;
+            }
+            if (!selectedProductData) {
+                showToast('Silakan pilih produk terlebih dahulu!', 'error');
+                document.querySelector('.step-circle').scrollIntoView({behavior: 'smooth', block: 'center'});
+                return; 
+            }
+            if (!selectedPaymentMethod) {
+                showToast('Silakan pilih metode pembayaran!', 'error');
+                return;
+            }
+            if (!isWaValid) {
+                validateInput(document.getElementById('whatsappInput'), 'whatsappError', () => false);
+                hasError = true;
+            }
+
+            if (hasError) {
+                 showToast('Mohon lengkapi data yang kurang!', 'error');
+            } else {
+                showModal(userId);
+            }
+        }
+
+        function showModal(userId) {
+            document.getElementById('modal-userid').innerText = userId;
+            // Removed Server ID display
+            document.getElementById('modal-item').innerText = selectedProductData.name;
+            document.getElementById('modal-payment').innerText = selectedPaymentMethod;
+
+            const modal = document.getElementById('confirmationModal');
+            const content = document.getElementById('modalContent');
+            
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function hideModal() {
+            const modal = document.getElementById('confirmationModal');
+            const content = document.getElementById('modalContent');
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+        }
+
+        function processOrder() {
+            hideModal();
+            showToast('Pesanan berhasil dibuat!', 'success');
+            const shopView = document.getElementById('shop-view');
+            const invoiceView = document.getElementById('invoice-view');
+            shopView.classList.add('view-exit');
+
+            setTimeout(() => {
+                shopView.classList.add('view-hidden');
+                shopView.classList.remove('view-exit'); 
+                invoiceView.classList.remove('view-hidden');
+                
+                const userId = document.getElementById('userIdInput').value;
+                
+                document.getElementById('inv-item-name').innerText = selectedProductData.name;
+                document.getElementById('inv-user-id').innerText = userId;
+                // Removed Server ID from Invoice Data Population
+                
+                const fee = 48;
+                const totalPrice = selectedProductData.price + fee;
+                
+                document.getElementById('inv-price').innerText = 'Rp ' + selectedProductData.price.toLocaleString('id-ID');
+                document.getElementById('inv-total').innerText = 'Rp ' + totalPrice.toLocaleString('id-ID');
+                document.getElementById('inv-method').innerText = selectedPaymentMethod; 
+
+                startTimer(2 * 60 * 60 + 59 * 60 + 59); 
+                window.scrollTo(0,0);
+                invoiceView.classList.add('view-enter');
+                setTimeout(() => invoiceView.classList.remove('view-enter'), 500);
+            }, 400); 
+        }
+
+        function startTimer(duration) {
+            let timer = duration, hours, minutes, seconds;
+            const display = document.getElementById('countdown');
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+                display.innerText = hours + " Jam " + minutes + " Menit " + seconds + " Detik";
+                if (--timer < 0) { timer = 0; display.innerText = "Waktu Habis"; }
+            }, 1000);
+        }
+
+        function downloadQR() {
+            const imgUrl = 'https://files.catbox.moe/esn2j1.png';
+            fetch(imgUrl).then(response => response.blob()).then(blob => {
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none'; a.href = url; a.download = 'QRIS-Payment.jpg';
+                document.body.appendChild(a); a.click(); window.URL.revokeObjectURL(url); document.body.removeChild(a);
+            }).catch(err => console.error('Gagal mengunduh gambar:', err));
+        }
+    </script>
+</body>
+</html>

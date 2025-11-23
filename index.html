@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kepo.id - Top Up Game Termurah & Terpercaya #1</title>
+    
+    <!-- SEO & Open Graph -->
+    <meta name="description" content="Platform Top Up Game Termurah, Tercepat, dan Terpercaya di Indonesia. Proses otomatis 24 jam untuk Mobile Legends, Free Fire, PUBG, dan lainnya.">
+    <meta property="og:title" content="Kepo.id - #1 GRATISANNYA!">
+    <meta property="og:description" content="Top Up Game Termurah se-Indonesia.">
+    <meta property="og:image" content="https://files.catbox.moe/hm75bz.png">
+  <meta property="og:url" content="https://kepotopup.github.io"> 
+  <meta property="og:type" content="website">
+    <link rel="icon" href="https://files.catbox.moe/4e9xoj.png" type="image/png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Konfigurasi Tema -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        kepo: {
+                            bg: '#2f1b63',       
+                            dark: '#1e1145',     
+                            card: '#442d81',     
+                            cardHover: '#53369a',
+                            accent: '#3ef3ff',   
+                            border: '#6b4caf',   
+                            text: '#e2d4f5'      
+                        }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 15px rgba(62, 243, 255, 0.3)',
+                        'float': '0 10px 30px rgba(0,0,0,0.3)'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.6s ease-out forwards',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(180deg, #4c2a8f 0%, #2f1b63 100%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #1e1145; }
+        ::-webkit-scrollbar-thumb { background: #6b4caf; border-radius: 4px; }
+
+        /* Glassmorphism Navbar */
+        .glass-nav {
+            background: rgba(30, 17, 69, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Game Card Professional Style */
+        .game-card {
+            background: linear-gradient(145deg, rgba(68, 45, 129, 0.6) 0%, rgba(40, 25, 80, 0.8) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            transform: translateZ(0);
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: linear-gradient(145deg, rgba(83, 54, 154, 0.9) 0%, rgba(60, 40, 110, 0.95) 100%);
+            border-color: rgba(62, 243, 255, 0.4);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3), 0 0 15px rgba(62, 243, 255, 0.1);
+        }
+
+        .game-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+            transform: skewX(-25deg);
+            transition: 0.5s;
+        }
+
+        .game-card:hover::after {
+            left: 150%;
+        }
+
+        /* Ripple Effect */
+        .ripple {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-anim 0.6s linear;
+            pointer-events: none;
+        }
+        @keyframes ripple-anim {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        /* Floating CS Button (Fixed & Prominent) */
+        .cs-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999; /* Z-index tinggi agar tidak tertutup */
+            box-shadow: 0 4px 20px rgba(62, 243, 255, 0.4);
+            background: #3ef3ff; /* Warna Cyan solid */
+            color: #1e1145;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+        .cs-float:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 0 6px 25px rgba(62, 243, 255, 0.6);
+        }
+
+        /* Slider Styles */
+        .slider-container {
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+        }
+        .slider-slide {
+            scroll-snap-align: start;
+        }
+
+        /* Skeleton Loading */
+        .skeleton {
+            background: linear-gradient(90deg, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Toast Notification */
+        #toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            pointer-events: none;
+        }
+        .toast {
+            pointer-events: auto;
+            min-width: 300px;
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(47, 27, 99, 0.9);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: slideIn 0.3s forwards;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+            to { transform: translateX(100%); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Toast Container -->
+    <div id="toast-container"></div>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="glass-nav fixed top-0 w-full z-50 h-16 flex items-center transition-all duration-300">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center gap-6">
+                <a href="index.html" class="transform hover:scale-105 transition duration-200">
+                    <img src="https://files.catbox.moe/nk49lb.webp" alt="Kepo Logo" class="h-8 md:h-10 object-contain" loading="eager">
+                </a>
+                
+                <!-- Search Bar (Desktop) -->
+                <div class="hidden md:flex relative group">
+                    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-kepo-accent transition">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" 
+                           class="bg-[#362066] text-sm rounded-full pl-10 pr-4 py-2 w-80 border border-white/10 focus:outline-none focus:border-kepo-accent focus:bg-[#442d81] transition-all text-white placeholder-gray-400 shadow-inner" 
+                           placeholder="Cari Game atau Voucher...">
+                </div>
+            </div>
+
+            <!-- Menu Desktop -->
+            <div class="flex items-center gap-6 text-sm font-medium">
+                <a href="index.html" class="hidden md:flex items-center gap-2 text-kepo-accent relative group">
+                    <i class="fas fa-wallet"></i> Topup
+                    <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-kepo-accent transform scale-x-100 transition-transform"></span>
+                </a>
+                <a href="https://www.kepo.id/id-id/invoices" class="hidden md:flex items-center gap-2 text-gray-300 hover:text-white transition group">
+                    <i class="fas fa-search group-hover:text-kepo-accent transition"></i> Cek Transaksi
+                </a>
+                <div class="w-px h-6 bg-white/10 hidden md:block"></div>
+                <a href="https://www.kepo.id/id-id/sign-in" class="hover:text-kepo-accent transition">Masuk</a>
+                <a href="https://www.kepo.id/id-id/sign-up" class="bg-white/10 border border-white/20 px-5 py-2 rounded-xl hover:bg-white/20 hover:border-kepo-accent/50 transition duration-300 shadow-lg relative overflow-hidden" onclick="createRipple(event)">
+                    Daftar
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HERO BANNER SLIDER ================= -->
+    <div class="container mx-auto px-4 mt-24 animate-fade-in relative group">
+        <!-- Container Utama Slider (Relative) -->
+        <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#2f1b63] aspect-[2.5/1] md:aspect-[3.5/1] max-h-[400px]">
+            
+            <!-- Wrapper Slider (Flex) -->
+            <div id="hero-slider" class="flex transition-transform duration-700 ease-in-out h-full">
+                <!-- Slide 1 -->
+                <div class="w-full flex-shrink-0 relative h-full">
+                    <img src="https://files.catbox.moe/dnlqo2.png" alt="Banner 1" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2f1b63] via-transparent to-transparent opacity-40"></div>
+                </div>
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0 relative h-full">
+                    <img src="https://files.catbox.moe/dnlqo2.png" alt="Banner 2" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#2f1b63] via-transparent to-transparent opacity-40"></div>
+                </div>
+            </div>
+
+            <!-- Tombol Navigasi Kiri/Kanan -->
+            <button onclick="moveSlide(-1)" class="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-white opacity-0 group-hover:opacity-100 transition hover:bg-kepo-accent hover:text-black flex items-center justify-center z-10">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button onclick="moveSlide(1)" class="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 rounded-full bg-black/30 backdrop-blur-sm border border-white/10 text-white opacity-0 group-hover:opacity-100 transition hover:bg-kepo-accent hover:text-black flex items-center justify-center z-10">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Indikator Dots -->
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+                <button onclick="goToSlide(0)" class="slider-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300 hover:bg-kepo-accent"></button>
+                <button onclick="goToSlide(1)" class="slider-dot w-2 h-2 rounded-full bg-white/50 transition-all duration-300 hover:bg-kepo-accent"></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= GAME POPULER ================= -->
+    <main class="container mx-auto px-4 mt-12 pb-24 relative z-10">
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-8 animate-fade-in" style="animation-delay: 0.1s">
+            <div class="p-2 bg-orange-500/20 rounded-lg border border-orange-500/30">
+                <i class="fas fa-fire text-orange-500 text-xl animate-pulse"></i>
+            </div>
+            <div>
+                <h2 class="text-xl md:text-2xl font-bold text-white tracking-wide">POPULER SEKARANG!</h2>
+                <p class="text-xs text-gray-400">Pilihan terbaik untuk top up game favoritmu.</p>
+            </div>
+        </div>
+
+        <!-- Grid Container -->
+        <div id="games-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+            <!-- Skeleton Loader (Akan diganti JS) -->
+        </div>
+    </main>
+
+    <!-- Floating CS Button (Fixed Style & Position) -->
+    <a href="#" onclick="showToast('Menghubungkan ke Admin WhatsApp...')" class="cs-float">
+        <i class="fas fa-headset text-xl"></i> 
+        <span>HUBUNGI ADMIN</span>
+    </a>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#150c2e] relative pt-32 pb-10 text-sm text-gray-400 mt-20 border-t border-white/5">
+        <!-- SVG Wave -->
+        <div class="absolute top-0 w-full overflow-hidden leading-0 transform rotate-180 -mt-[1px]">
+             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[60px] fill-[#2f1b63]">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
+            </svg>
+        </div>
+
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
+            <!-- Brand Info -->
+            <div>
+                <a href="index.html" class="block mb-6">
+                    <img src="https://files.catbox.moe/nk49lb.webp" class="h-9 brightness-110" loading="lazy">
+                </a>
+                <p class="text-xs leading-relaxed mb-6 text-gray-400">Platform Top Up Game Termurah, Tercepat, dan Terpercaya di Indonesia. Proses otomatis 24 jam dengan metode pembayaran terlengkap.</p>
+                <div class="flex gap-3">
+                    <a href="https://www.instagram.com/official.kepoid" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.tiktok.com/@tiktok.kepoid" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@officialkepoid?si=4Q7OllptKYXocA-5" class="w-9 h-9 rounded-lg bg-white/5 flex items-center justify-center hover:bg-kepo-accent hover:text-black transition duration-300 border border-white/5"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <!-- Links -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Peta Situs</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="index.html" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Beranda</a></li>
+                    <li><a href="https://www.kepo.id/id-id/sign-in" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Masuk / Daftar</a></li>
+                    <li><a href="https://www.kepo.id/id-id/invoices" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-chevron-right text-[8px]"></i> Cek Pesanan</a></li>
+                </ul>
+            </div>
+            
+            <!-- Support -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Dukungan</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="https://whatsapp.com/channel/0029Val5dvlC6ZvdRLXrDl3f" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-envelope"></i> Ulasan</a></li>
+                </ul>
+            </div>
+            
+            <!-- Legal -->
+            <div>
+                <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Legalitas</h4>
+                <ul class="space-y-3 text-xs">
+                    <li><a href="https://www.kepo.id/id-id/terms-and-condition" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-shield-alt"></i> Syarat & Ketentuan</a></li>
+                    <li><a href="https://www.kepo.id/id-id/privacy-policy" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-user-shield"></i> Kebijakan Privasi</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="text-center mt-16 border-t border-white/5 pt-8 text-[10px] text-gray-500 tracking-wider">
+            Copyright © 2024 Kepo.id. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- ================= JAVASCRIPT LOGIC ================= -->
+    <script>
+        // Data Games
+        const games = [
+            { name: "Mobile Legends", dev: "Moonton", img: "https://files.catbox.moe/qhz0t2.webp", url: "./mlbb.html" },
+            { name: "Free Fire", dev: "Garena", img: "https://files.catbox.moe/xrcn7w.webp", url: "./ff.html" },
+            { name: "PUBG Mobile", dev: "Tencent Games", img: "https://files.catbox.moe/ijqieo.webp", url: "https://www.kepo.id/id-id/pubg-mobile" },
+            { name: "Honor of Kings", dev: "Level Infinite", img: "https://files.catbox.moe/xmndi7.webp", url: "https://www.kepo.id/id-id/honor-of-kings" },
+            { name: "Valorant", dev: "Riot Games", img: "https://files.catbox.moe/swtuyp.webp", url: "https://www.kepo.id/id-id/valorant" },
+            { name: "Genshin Impact", dev: "HoYoverse", img: "https://files.catbox.moe/cibfaw.webp", url: "https://www.kepo.id/id-id/genshin-impact" },
+            { name: "Roblox", dev: "Roblox Corp", img: "https://files.catbox.moe/snt19c.webp", url: "https://www.kepo.id/id-id/roblox" },
+            { name: "Token PLN", dev: "Layanan PLN", img: "https://files.catbox.moe/n4i02c.webp", url: "#", isService: true }, // UPDATED: PLN Logo
+            { name: "Paket Data", dev: "All Operator", img: "https://files.catbox.moe/o0yb6s.png", url: "https://www.kepo.id/id-id/paket-data", isService: true } 
+        ];
+
+        // --- SLIDER LOGIC ---
+        let currentSlide = 0;
+        const totalSlides = 2;
+        const sliderIntervalTime = 5000; // 5 detik
+        let sliderInterval;
+
+        function updateSlider() {
+            const slider = document.getElementById('hero-slider');
+            const dots = document.querySelectorAll('.slider-dot');
+            
+            // Geser Slider
+            slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // Update Dots
+            dots.forEach((dot, index) => {
+                if(index === currentSlide) {
+                    dot.classList.remove('bg-white/50');
+                    dot.classList.add('bg-kepo-accent', 'w-8');
+                } else {
+                    dot.classList.remove('bg-kepo-accent', 'w-8');
+                    dot.classList.add('bg-white/50');
+                }
+            });
+        }
+
+        function moveSlide(direction) {
+            currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+            updateSlider();
+            resetInterval();
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            updateSlider();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(sliderInterval);
+            sliderInterval = setInterval(() => moveSlide(1), sliderIntervalTime);
+        }
+
+        // --- GAME GRID RENDER ---
+        function renderSkeleton() {
+            const container = document.getElementById('games-grid');
+            container.innerHTML = '';
+            
+            for(let i=0; i<9; i++) {
+                const skel = document.createElement('div');
+                skel.className = 'bg-[#2f1b63] rounded-2xl p-4 border border-white/5 h-[100px] flex items-center gap-4 skeleton';
+                skel.innerHTML = `
+                    <div class="w-16 h-16 rounded-xl bg-white/10"></div>
+                    <div class="flex-1 space-y-2">
+                        <div class="h-4 w-3/4 bg-white/10 rounded"></div>
+                        <div class="h-3 w-1/2 bg-white/10 rounded"></div>
+                    </div>
+                `;
+                container.appendChild(skel);
+            }
+        }
+
+        function renderGames() {
+            const container = document.getElementById('games-grid');
+            container.innerHTML = '';
+            
+            games.forEach((game, index) => {
+                const card = document.createElement('a');
+                card.href = game.url;
+                card.className = 'game-card rounded-2xl p-4 flex items-center gap-4 group cursor-pointer block opacity-0 animate-fade-in';
+                card.style.animationDelay = `${index * 0.05}s`;
+                
+                const iconBg = game.isService ? 'bg-gradient-to-br from-yellow-400 to-orange-500 p-1' : '';
+                
+                card.innerHTML = `
+                    <div class="relative w-16 h-16 md:w-20 md:h-20 shrink-0">
+                        <img src="${game.img}" alt="${game.name}" class="w-full h-full object-cover rounded-2xl shadow-lg relative z-10 group-hover:scale-105 transition duration-300 ${iconBg}" loading="lazy">
+                        <div class="absolute inset-0 bg-kepo-accent/30 blur-lg rounded-full opacity-0 group-hover:opacity-50 transition duration-300"></div>
+                    </div>
+                    
+                    <div class="relative z-10 flex-1">
+                        <h3 class="font-bold text-white text-base md:text-lg group-hover:text-kepo-accent transition duration-300 line-clamp-1">${game.name}</h3>
+                        <p class="text-xs text-gray-400 group-hover:text-gray-200 transition">${game.dev}</p>
+                    </div>
+
+                    <div class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-gray-400 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300">
+                        <i class="fas fa-chevron-right text-xs"></i>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // --- RIPPLE & TOAST ---
+        function createRipple(event) {
+            const button = event.currentTarget;
+            const circle = document.createElement("span");
+            const diameter = Math.max(button.clientWidth, button.clientHeight);
+            const radius = diameter / 2;
+            const rect = button.getBoundingClientRect();
+            
+            circle.style.width = circle.style.height = `${diameter}px`;
+            circle.style.left = `${event.clientX - rect.left - radius}px`;
+            circle.style.top = `${event.clientY - rect.top - radius}px`;
+            circle.classList.add("ripple");
+
+            const ripple = button.getElementsByClassName("ripple")[0];
+            if (ripple) { ripple.remove(); }
+
+            button.appendChild(circle);
+        }
+
+        function showToast(message) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <div class="w-8 h-8 rounded-full bg-kepo-accent/20 flex items-center justify-center text-kepo-accent">
+                    <i class="fas fa-info"></i>
+                </div>
+                <div class="text-sm font-medium">${message}</div>
+            `;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.animation = 'slideOut 0.3s forwards';
+                toast.addEventListener('animationend', () => toast.remove());
+            }, 3000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSkeleton();
+            
+            // Start Slider
+            updateSlider();
+            resetInterval();
+
+            // Load Data
+            setTimeout(() => {
+                renderGames();
+            }, 800);
+        });
+    </script>
+</body>
+</html>
