@@ -556,13 +556,15 @@
         </div>
     </div>
     
-    <!-- FOOTER -->
-    <footer class="mt-20 bg-[#150c2e] relative pt-32 pb-10 text-sm text-gray-400 mt-20 border-t border-white/5">
+    <!-- ================= FOOTER ================= -->
+    <footer class="bg-[#150c2e] relative pt-32 pb-10 text-sm text-gray-400 mt-20 border-t border-white/5">
+        <!-- SVG Wave -->
         <div class="absolute top-0 w-full overflow-hidden leading-0 transform rotate-180 -mt-[1px]">
              <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" class="relative block w-[calc(100%+1.3px)] h-[60px] fill-[#2f1b63]">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"></path>
             </svg>
         </div>
+
         <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-10 relative z-10">
             <!-- Brand Info -->
             <div>
@@ -591,9 +593,8 @@
             <div>
                 <h4 class="text-white font-bold mb-6 text-base border-l-4 border-kepo-accent pl-3">Dukungan</h4>
                 <ul class="space-y-3 text-xs">
-                    <li><a href="https://whatsapp.com/channel/0029Val5dvlC6ZvdRLXrDl3f" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp CS</a></li>
-                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-envelope"></i> Email Support</a></li>
-                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-bug"></i> Laporan Kendala</a></li>
+                    <li><a href="https://whatsapp.com/channel/0029Val5dvlC6ZvdRLXrDl3f" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                    <li><a href="https://www.kepo.id/id-id/reviews" class="hover:text-kepo-accent transition flex items-center gap-2"><i class="fas fa-envelope"></i> Ulasan</a></li>
                 </ul>
             </div>
             
@@ -617,21 +618,21 @@
         // Data Produk FF
         const products = [
             // Diamonds
-            { name: "5 Diamonds", price: 652, category: "Diamonds" },
-            { name: "12 Diamonds", price: 1341, category: "Diamonds" },
-            { name: "50 Diamonds", price: 4332, category: "Diamonds" },
-            { name: "70 Diamonds", price: 6898, category: "Diamonds" },
-            { name: "140 Diamonds", price: 14084, category: "Diamonds" },
-            { name: "355 Diamonds", price: 36360, category: "Diamonds" },
-            { name: "720 Diamonds", price: 73510, category: "Diamonds" },
-            { name: "1450 Diamonds", price: 148060, category: "Diamonds" },
-            { name: "2180 Diamonds", price: 234028, category: "Diamonds" },
-            { name: "3640 Diamonds", price: 382470, category: "Diamonds" },
+            { name: "5 Diamonds", price: 672, category: "Diamonds" },
+            { name: "12 Diamonds", price: 1491, category: "Diamonds" },
+            { name: "50 Diamonds", price: 5232, category: "Diamonds" },
+            { name: "70 Diamonds", price: 7698, category: "Diamonds" },
+            { name: "140 Diamonds", price: 15684, category: "Diamonds" },
+            { name: "355 Diamonds", price: 38360, category: "Diamonds" },
+            { name: "720 Diamonds", price: 79210, category: "Diamonds" },
+            { name: "1450 Diamonds", price: 158060, category: "Diamonds" },
+            { name: "2180 Diamonds", price: 241028, category: "Diamonds" },
+            { name: "3640 Diamonds", price: 399893, category: "Diamonds" },
             
             // BP Card & Memberships
-            { name: "BP Card", price: 35090, category: "Membership", image: "https://files.catbox.moe/nj6jvb.webp" },
-            { name: "Membership Mingguan", price: 21200, category: "Membership", image: "https://files.catbox.moe/xvyg70.webp" },
-            { name: "Membership Bulanan", price: 63070, category: "Membership", image: "Https://files.catbox.moe/0yvffo.webp" }
+            { name: "BP Card", price: 36093, category: "Membership", image: "https://files.catbox.moe/nj6jvb.webp" },
+            { name: "Membership Mingguan", price: 21600, category: "Membership", image: "https://files.catbox.moe/xvyg70.webp" },
+            { name: "Membership Bulanan", price: 68370, category: "Membership", image: "Https://files.catbox.moe/0yvffo.webp" }
         ];
 
         const gridContainer = document.getElementById('product-grid');
