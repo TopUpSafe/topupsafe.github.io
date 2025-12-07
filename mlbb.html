@@ -1010,7 +1010,7 @@
             // --- LOCAL STORAGE: SAVE ON INPUT ---
             userIdInput.addEventListener('input', (e) => {
                 localStorage.setItem('kepo_userid', e.target.value);
-                validateInput(userIdInput, 'userIdError', (val) => /^\d{8,9}$/.test(val));
+                validateInput(userIdInput, 'userIdError', (val) => /^\d{8,11}$/.test(val));
             });
 
             zoneIdInput.addEventListener('input', (e) => {
@@ -1035,7 +1035,7 @@
             const zoneId = document.getElementById('zoneIdInput').value;
             const wa = document.getElementById('whatsappInput').value;
             
-            const isUserValid = /^\d{8,9}$/.test(userId);
+            const isUserValid = /^\d{8,11}$/.test(userId);
             const isZoneValid = /^\d{4,6}$/.test(zoneId);
             const isWaValid = wa.length >= 10 && /^\d+$/.test(wa);
 
